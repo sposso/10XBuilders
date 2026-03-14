@@ -61,6 +61,22 @@ The system must use agents to:
 
 Finally, the system must generate a **daily pickup route plan** for logistics execution.
 
+### Stage 4 — Client Receipt Generation (Post-Delivery)
+
+After delivery is completed, the system must automatically generate and send a receipt to the client using the same WhatsApp chatbot that manages orders.
+
+The receipt must include:
+
+- final confirmed product list  
+- delivered quantities  
+- final unit prices  
+- total cost  
+- delivery date  
+- PACHA business information  
+- receipt or invoice number  
+
+The system should ensure the receipt complies with applicable legal and accounting requirements in Colombia
+
 ---
 
 ## 3. Technical Requirements  
@@ -115,7 +131,7 @@ Expected outputs:
   "timestamp": "",
   "items": [
     {"product": "limon", "quantity": 20, "unit": "kg"},
-    {"product": "fresa", "quantity": 10, "unit": "kg"}
+    {"product": "fresa", "quantity": 10, "unit": "kg"},
     {"product": "papa", "quantity": 80, "unit": "kg"}
   ]
 }
@@ -147,6 +163,16 @@ Inputs
 ## 3.3 Outputs  
 **Purpose:** Clearly define expected outputs and formats.
 
+#### Stage 4 — Client Receipt Generation
+
+Inputs
+
+- finalized delivery order (post-review and execution)
+- confirmed delivered quantities
+- final negotiated prices
+- client billing information 
+
+
 ---
 
 ### Stage 1 Outputs  
@@ -170,6 +196,25 @@ Inputs
 |-----------|---------|--------|-------|---------|
 
 - optimized procurement decision report  
+
+---
+
+---
+
+#### Stage 4 — Outputs
+
+The chatbot sends a structured receipt via WhatsApp.
+
+**Formats:**
+
+- PDF receipt (primary format)
+- optional text summary in message body
+
+**Example WhatsApp message:**
+
+> Hola  
+> Te compartimos el comprobante de tu pedido de hoy.  
+
 
 ---
 
@@ -209,7 +254,13 @@ Inputs
 ### Scalability Constraints  
 
 - support ≥20 restaurants/day  
-- support ≥10 suppliers/day  
+- support ≥10 suppliers/day
+
+### Receipt Constraints
+
+- must follow Colombian receipt/invoicing requirements  
+- must generate documents automatically without manual intervention  
+- must send within minutes after delivery confirmation  
 
 ---
 
@@ -230,8 +281,7 @@ Inputs
 ### Stage 2 Completion Criteria  
 
 - dashboard supports manual review  
-- edits persist correctly  
-- consolidated demand exported reliably  
+- manual edits are saved reliably and reflected in downstream stages   
 
 ---
 
@@ -242,6 +292,14 @@ Inputs
 - optimal supplier automatically selected  
 
 ---
+
+#### Stage 4 — Completion Criteria
+
+- receipt generated automatically after delivery completion  
+- totals calculated correctly  
+- PDF formatted correctly  
+- receipt sent successfully via WhatsApp  
+- stored in system records
 
 ### Logistics Completion Criteria  
 
