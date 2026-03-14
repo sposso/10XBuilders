@@ -5,19 +5,16 @@
 Use a short, action-oriented title that reflects the main engineering objective.
 
 **Task Title:**  
-Automation of PACHA Operational Workflow Using Multi-Agent System (Restaurants → Review → Suppliers → Pickup Planning)
+Automation of PACHA Operational Workflow Using a Multi-Agent System (Restaurants → Review → Suppliers → Pickup Planning → Receipt Generation)
 
 ---
 
 ## 2. Context  
-**Purpose:** Provide background information necessary to understand why this task exists and how it fits into PACHA’s broader 
-operations.
+**Purpose:** Provide background information necessary to understand why this task exists and how it fits into PACHA’s broader operations.
 
-PACHA is a produce procurement platform that connects restaurants in Pereira (Colombia) with local fruit and vegetable suppliers. 
-Currently, the workflow is mostly manual and relies heavily on WhatsApp communication, which makes it time-consuming, 
-error-prone, and difficult to scale.
+PACHA is a produce procurement platform that connects restaurants in Pereira (Colombia) with local fruit and vegetable suppliers. Currently, the workflow is mostly manual and relies heavily on WhatsApp communication, which makes it time-consuming, error-prone, and difficult to scale.
 
-The operational workflow consists of three main stages:
+The operational workflow consists of four main stages:
 
 ### Stage 1 — Restaurant Orders  
 Restaurants send daily orders via WhatsApp using:
@@ -54,12 +51,14 @@ Because:
 
 The system must use agents to:
 
-- contact suppliers also via Whatsapp
+- contact suppliers via WhatsApp  
 - request daily price and stock availability  
 - compare options automatically  
 - generate optimal procurement decisions  
 
 Finally, the system must generate a **daily pickup route plan** for logistics execution.
+
+---
 
 ### Stage 4 — Client Receipt Generation (Post-Delivery)
 
@@ -75,12 +74,12 @@ The receipt must include:
 - PACHA business information  
 - receipt or invoice number  
 
-The system should ensure the receipt complies with applicable legal and accounting requirements in Colombia
+The system should ensure the receipt complies with applicable legal and accounting requirements in Colombia.
 
 ---
 
 ## 3. Technical Requirements  
-**Purpose:** Define exactly what must be implemented from a technical perspective. 
+**Purpose:** Define exactly what must be implemented from a technical perspective.  
 This section should be precise, structured, and testable.
 
 ---
@@ -109,47 +108,35 @@ Optional:
 
 Clearly define all expected inputs.
 
----
-
 #### Stage 1 — Restaurant Orders  
 
 Expected inputs:
 
 **Text Example**
 
-- 20 kg limon
-- 10 kg fresa
-- 80 kg papa
-**Image Example **
-- handwritten or typed order lists  (requires Handwritten text recognition )
+- 20 kg limon  
+- 10 kg fresa  
+- 80 kg papa  
 
-Expected outputs: 
+**Image Example**
 
-```json
-{
-  "restaurant_id": "R001",
-  "timestamp": "",
-  "items": [
-    {"product": "limon", "quantity": 20, "unit": "kg"},
-    {"product": "fresa", "quantity": 10, "unit": "kg"},
-    {"product": "papa", "quantity": 80, "unit": "kg"}
-  ]
-}
+- handwritten or typed order lists  
+- requires handwritten text recognition  
 
-```
+---
 
-##### Stage 2 — Internal Review  
+#### Stage 2 — Internal Review  
 
- Inputs  
+Inputs:
 
 - aggregated daily order table  
 - manual corrections from dashboard interface  
 
 ---
 
-##### Stage 3 — Supplier Interaction  
+#### Stage 3 — Supplier Interaction  
 
-Inputs  
+Inputs:
 
 - consolidated demand list  
 - supplier contact registry  
@@ -160,18 +147,19 @@ Inputs
 
 ---
 
+#### Stage 4 — Client Receipt Generation  
+
+Inputs:
+
+- finalized delivery order (post-review and execution)  
+- confirmed delivered quantities  
+- final negotiated prices  
+- client billing information  
+
+---
+
 ## 3.3 Outputs  
 **Purpose:** Clearly define expected outputs and formats.
-
-#### Stage 4 — Client Receipt Generation
-
-Inputs
-
-- finalized delivery order (post-review and execution)
-- confirmed delivered quantities
-- final negotiated prices
-- client billing information 
-
 
 ---
 
@@ -190,31 +178,28 @@ Inputs
 
 ### Stage 3 Outputs  
 
-**Supplier comparison table (example format):**
+Supplier comparison table (example format):
 
 | Supplier | Product | Price | Stock | Selected |
-|-----------|---------|--------|-------|---------|
+|----------|---------|-------|-------|----------|
 
 - optimized procurement decision report  
 
 ---
 
----
-
-#### Stage 4 — Outputs
+### Stage 4 Outputs  
 
 The chatbot sends a structured receipt via WhatsApp.
 
-**Formats:**
+Formats:
 
-- PDF receipt (primary format)
-- optional text summary in message body
+- PDF receipt (primary format)  
+- optional text summary in message body  
 
-**Example WhatsApp message:**
+Example WhatsApp message:
 
 > Hola  
 > Te compartimos el comprobante de tu pedido de hoy.  
-
 
 ---
 
@@ -239,7 +224,7 @@ The chatbot sends a structured receipt via WhatsApp.
 
 ### Technical Constraints  
 
-- HWT pipeline must work with noisy photos  
+- handwritten text recognition pipeline must work with noisy photos  
 - message response latency must remain under ~10 seconds  
 
 ---
@@ -254,9 +239,11 @@ The chatbot sends a structured receipt via WhatsApp.
 ### Scalability Constraints  
 
 - support ≥20 restaurants/day  
-- support ≥10 suppliers/day
+- support ≥10 suppliers/day  
 
-### Receipt Constraints
+---
+
+### Receipt Constraints  
 
 - must follow Colombian receipt/invoicing requirements  
 - must generate documents automatically without manual intervention  
@@ -281,37 +268,37 @@ The chatbot sends a structured receipt via WhatsApp.
 ### Stage 2 Completion Criteria  
 
 - dashboard supports manual review  
-- manual edits are saved reliably and reflected in downstream stages   
+- manual edits are saved reliably and reflected in downstream stages  
 
 ---
 
 ### Stage 3 Completion Criteria  
 
 - supplier agents operate successfully  
-- pricing + stock parsed correctly  
+- pricing and stock parsed correctly  
 - optimal supplier automatically selected  
 
 ---
 
-#### Stage 4 — Completion Criteria
+### Stage 4 Completion Criteria  
 
 - receipt generated automatically after delivery completion  
 - totals calculated correctly  
 - PDF formatted correctly  
 - receipt sent successfully via WhatsApp  
-- stored in system records
+- stored in system records  
+
+---
 
 ### Logistics Completion Criteria  
 
 - pickup routes generated automatically  
 
-
 ---
 
+### System-Level Completion Criteria  
 
-  
-
-
-
-
-
+- end-to-end workflow operates daily  
+- manual workload reduced significantly  
+- validated with real PACHA operations  
+- system documented clearly  
