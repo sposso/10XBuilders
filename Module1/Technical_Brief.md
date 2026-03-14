@@ -12,7 +12,7 @@ Automation of PACHA Operational Workflow Using a Multi-Agent System (Restaurants
 ## 2. Context  
 **Purpose:** Provide background information necessary to understand why this task exists and how it fits into PACHA’s broader operations.
 
-PACHA is a produce procurement platform that connects restaurants in Pereira (Colombia) with local fruit and vegetable suppliers. Currently, the workflow is mostly manual and relies heavily on WhatsApp communication, which makes it time-consuming, error-prone, and difficult to scale.
+PACHA is a produce procurement platform that connects restaurants in Pereira  with the main food distriution hub. Currently, the workflow is mostly manual and relies heavily on WhatsApp communication, which makes it time-consuming, error-prone, and difficult to scale.
 
 The operational workflow consists of four main stages:
 
