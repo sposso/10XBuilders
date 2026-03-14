@@ -18,7 +18,8 @@ BPIR is composed of four stages that should be followed when working with AI:
 
 - **B — Brief**: The human defines the context, restrictions, and definition of done.
 - **P — Plan**: The AI model proposes a plan, and the human validates it.
-- **I — Implementation**: The AI model generates code iteratively.
+- **I — Implementation**: The AI model generates the code iteratively under human supervision using a lazy-iteration approach. Code                            is produced in manageable chunks, and after each chunk, a human reviews the current state, decides                                   whether it should be kept as is or revised, and then determines whether development
+                           should proceed to the next step.
 - **R — Review**: The human audits the logic, security, and alignment with the initial plan.
 
 ## Contents
