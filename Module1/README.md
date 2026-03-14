@@ -52,4 +52,4 @@ BPIR consists of four stages that should be followed when working with AI:
 
 ## Contents
 
-This folder contains my brief template, which will be used throughout the course.
+This folder contains my brief and review protocol template, which will be used throughout the course.
