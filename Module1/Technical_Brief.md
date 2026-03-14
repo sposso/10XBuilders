@@ -120,25 +120,27 @@ Expected outputs:
   ]
 }
 
-### Stage 2 — Internal Review  
+```
 
-### Inputs  
+##### Stage 2 — Internal Review  
+
+ Inputs  
 
 - aggregated daily order table  
 - manual corrections from dashboard interface  
 
 ---
 
-## Stage 3 — Supplier Interaction  
+##### Stage 3 — Supplier Interaction  
 
-### Inputs  
+Inputs  
 
 - consolidated demand list  
 - supplier contact registry  
 
 **Agent message example:**  
 
-> Buenos días. ¿Precio y disponibilidad hoy para tomate, cebolla y lechuga?
+> Buenos días. ¿Precio y disponibilidad hoy para limon, fresa y papa?
 
 ---
 
@@ -192,7 +194,7 @@ Expected outputs:
 
 ### Technical Constraints  
 
-- OCR must work with noisy photos  
+- HWT pipeline must work with noisy photos  
 - message response latency must remain under ~10 seconds  
 
 ---
@@ -206,7 +208,7 @@ Expected outputs:
 
 ### Scalability Constraints  
 
-- support ≥50 restaurants/day  
+- support ≥20 restaurants/day  
 - support ≥10 suppliers/day  
 
 ---
@@ -244,7 +246,7 @@ Expected outputs:
 ### Logistics Completion Criteria  
 
 - pickup routes generated automatically  
-- routes reduce travel time vs manual planning  
+
 
 ---
 
