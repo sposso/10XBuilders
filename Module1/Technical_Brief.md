@@ -166,14 +166,25 @@ Inputs:
 ### Stage 1 Outputs  
 
 - structured daily order dataset  
-- clean tabulated dashboard view  
+- clean tabulated dashboard view
+
+```json
+{
+  "restaurant_id": "R001",
+  "timestamp": "",
+  "items": [
+    {"product": "limon", "quantity": 20, "unit": "kg"},
+    {"product": "fresa", "quantity": 10, "unit": "kg"},
+    {"product": "papa", "quantity": 80, "unit": "kg"}
+  ]
+}
+```
 
 ---
 
 ### Stage 2 Outputs  
 
-- approved consolidated demand dataset  
-
+- approved consolidated demand dataset
 ---
 
 ### Stage 3 Outputs  
@@ -238,8 +249,8 @@ Example WhatsApp message:
 
 ### Scalability Constraints  
 
-- support ≥20 restaurants/day  
-- support ≥10 suppliers/day  
+- support ≥10 restaurants/day  
+- support ≥5 suppliers/day  
 
 ---
 
