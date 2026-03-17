@@ -20,7 +20,7 @@ The operational workflow consists of four main stages:
 Restaurants send daily orders via WhatsApp using:
 
 - text messages  
-- photos of handwritten or typed lists  
+- photos of handwritten  
 
 The goal is to develop a chatbot-like system (digital secretary) that:
 
