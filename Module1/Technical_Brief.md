@@ -120,8 +120,8 @@ Expected inputs:
 
 **Image Example**
 
-- handwritten or typed order lists  
-- requires handwritten text recognition  
+- handwritten order lists  
+
 
 ---
 
